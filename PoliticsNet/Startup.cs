@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using Microsoft.EntityFrameworkCore;
 using Politics.Data;
 using PoliticsNet.Data;
@@ -15,7 +14,6 @@ using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using PoliticsNet.Helpers;
-
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using AutoMapper;
 
