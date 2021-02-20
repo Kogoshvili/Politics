@@ -1,0 +1,116 @@
+@media screen and (max-width: 1000px) {
+    .post-card-space {
+        display: flex;
+        justify-content: center;
+    }
+}
+/* Card */
+@media screen and (max-width: 1000px) {
+    .post-card {
+        width: 680px;
+    }
+}
+/* Top */
+.post-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post-top h5 {
+    margin-left: 10px;
+}
+.post-top img {
+    width: 45px;
+    border-radius: 50%;
+}
+.post-top:before {
+    content: '';
+    flex: 1 1 auto;
+    order: 1;
+}
+.top-like {
+    order: 2;
+    font-size: 1.7em;
+}
+/* Body */
+.post-body {
+    overflow: auto;
+}
+/* .post-body:after {
+    clear:both;
+    display:table;
+    content:'';
+} */
+.less {
+    overflow: hidden;
+    max-height: 360px;
+    text-overflow: ellipsis;
+}
+.ngx-gallery {
+    float: left;
+    margin-right: 10px;
+    width: 50% !important;
+}
+@media screen and (max-width: 1000px) {
+    .post-body {
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+    }
+    .post-body-gallery{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .ngx-gallery {
+        flex-basis: 80%;
+    }
+    .post-body-content{
+    }
+}
+@media screen and (max-width: 810px) {
+    .ngx-gallery {
+        height: 400px !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    .ngx-gallery {
+        height: 300px !important;
+    }
+}
+
+/* ngx-gallery-active */
+.post-body .hideshow {
+    font-weight: bold;
+    color: #7bc043;
+    float: right;
+    margin-top: 10px;
+}
+
+/* Bottom */
+.post-bottom {
+    margin-top: 10px;
+}
+.post-bottom .fa {
+    font-size: 18px;
+}
+.post-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.post-list li {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.post-list li i{
+    margin-right: 5px;
+}
+
+.post-list span {
+    font-weight: 500;
+}

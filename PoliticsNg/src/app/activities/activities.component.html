@@ -1,0 +1,50 @@
+<div class="plane activity">
+    <h1>{{activity.title}}</h1>
+    <h5>
+      {{activity.description}}
+    </h5>
+    <div class="like-dislike">
+      
+      <div>
+        <i class="fa {{this.like ? 'fa-thumbs-up' : 'fa-thumbs-o-up'}}" (click)="likeActivity()" role="button"></i>
+        <span>{{activity.likes.likes.length}}</span>
+      </div>
+      <div>
+        <i class="fa {{this.dislike ? 'fa-thumbs-down' : 'fa-thumbs-o-down'}}" (click)="dislikeActivity()" role="button"></i>
+        <span>{{activity.likes.dislikes.length}}</span>
+      </div>
+
+    </div>
+    <ul class="activity-list">
+
+      <li class="share">
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+            Share</a></div>
+      </li>
+
+      <li class="comments">
+        <i class="fa fa-comment fa-2x" role="button" (click)="toggelComments()"></i>
+        <span>{{activity.comments.length}}</span>
+      </li>
+
+    </ul>
+</div>
+<div  class="full-comments" [ngStyle]="{'display': !this.showComments ? 'none' : 'block'}">
+  <div style="margin: 0 auto; width: 90%;">
+    <div *ngIf="activity.comments.length > 0">
+      <div style="display: flex; justify-content: space-between;">
+        <h5 *ngIf="this.for">მომხრე</h5>
+        <h5 *ngIf="this.against">მოწინააღმდეგე</h5>
+      </div>
+      <div class="comment-list">
+        <app-rating-card-comment *ngFor="let comment of activity.comments; let i = index" [comment]="comment" 
+        [ngClass]="{'right': for && (comment.side == 'against' && activity.comments[i-1].side == 'against')}"
+        ></app-rating-card-comment>
+      </div>
+    </div>
+    <div *ngIf="this.user != null" style="margin: 0 auto; margin-bottom: 30px;">
+      <app-activities-create-comment [activityId]="activity.id" ></app-activities-create-comment>
+    </div>
+  </div>
+</div>

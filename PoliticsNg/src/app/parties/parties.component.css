@@ -1,0 +1,23 @@
+/* Top */
+.provider-top {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.provider-top h3 {
+    margin-bottom: 15px;
+}
+
+.provider-top img {
+    margin-bottom: 15px;
+    width: 100px;
+    border-radius: 50%;
+}
+/* Body */
+.provider-body {
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+
+

@@ -1,0 +1,11 @@
+<p>
+  posts-details works!
+</p>
+{{ post | json }}
+<div>
+  <div [innerHTML]="post.content"> </div>
+
+
+</div>
+<!-- <button *ngIf="post.userId == userId" [routerLink]="['/post/edit/' + post.id]">Edit</button>
+<button *ngIf="post.userId == userId" (click)="deletePost()">Delete</button> -->

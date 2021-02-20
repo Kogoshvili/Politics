@@ -1,0 +1,17 @@
+<div *ngFor="let post of posts">
+  <app-posts-card [post]="post" (UpdateOnDelete)="UpdateOnDelete()" ></app-posts-card>
+</div>
+<div 
+class="search-results"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="1000"
+(scrolled)="onScroll()"
+>
+</div>
+<!-- <div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage" [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+    >
+  </pagination>
+</div> -->

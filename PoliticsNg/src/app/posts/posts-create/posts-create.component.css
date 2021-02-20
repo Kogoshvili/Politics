@@ -1,0 +1,16 @@
+.post-create {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.form-inline {
+    margin-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.create-image {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.form-inline select {
+    min-width: 500px;
+}

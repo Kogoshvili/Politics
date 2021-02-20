@@ -1,0 +1,16 @@
+<div style="margin: 0 auto; width: 90%;">
+  <div *ngIf="comments.length > 0">
+    <div style="display: flex; justify-content: space-between;">
+      <h5 *ngIf="this.for">მომხრე</h5>
+      <h5 *ngIf="this.against">მოწინააღმდეგე</h5>
+    </div>
+    <div class="comment-list">
+      <app-rating-card-comment *ngFor="let comment of comments; let i = index" [comment]="comment" 
+      [ngClass]="{'right': for && (comment.side == 'against' && comments[i-1].side == 'against')}"
+      ></app-rating-card-comment>
+    </div>
+  </div>
+  <div *ngIf="this.user != null" style="margin: 0 auto; margin-bottom: 30px;">
+    <app-rating-comment-create [topicId]="topicId" ></app-rating-comment-create>
+  </div>
+</div>

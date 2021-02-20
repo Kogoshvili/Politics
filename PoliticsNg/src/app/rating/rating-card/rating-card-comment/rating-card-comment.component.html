@@ -1,0 +1,11 @@
+<div class="plane {{comment.side == 'against' ? 'bg-a': 'bg-f'}}">
+  <div class="comment-top">
+    <img src="https://www.caribbeangamezone.com/wp-content/uploads/2018/03/avatar-placeholder.png" alt="">
+    <h6> {{comment.user.userName}} </h6>
+    <div class="comment-like"> 
+      <i class="mr-2 fa {{this.like ? 'fa-thumbs-up' : 'fa-thumbs-o-up'}}" (click)="likeComment()" role="button"></i>
+      <span>{{comment.likes.length}}</span>
+    </div>
+  </div>
+  <div class="comment-body"[innerHTML]="comment.content"></div>
+</div>

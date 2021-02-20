@@ -1,0 +1,37 @@
+<div class="rating-add">
+  <button class="btn btn-primary" (click)="openModal(modelAdd)">საკითხის შემოთავაზება</button>
+</div>
+
+
+<ng-template #modelAdd>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">ავტორიზაცია</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="addModelRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+
+      <form #offerTopic="ngForm" (ngSubmit)="sendTopic()" class="flex">
+
+        <div class="form-group">
+          <label for="title">სათაური</label>
+          <input type="text" class="form-control" placeholder="title" id="title" name="title" required [(ngModel)]="model.title" >
+        </div>
+        
+        <div class="form-group">
+          <label for="description">აღწერა</label>
+          <quill-editor id="description" format="json" 
+            [modules]="{toolbar: [ ['bold', 'italic', 'underline', 'strike'], ['blockquote'], [{ 'color': [] }, { 'background': [] }], ['link'] ]}" 
+            name="content" [(ngModel)]="model.description"></quill-editor>
+        </div>
+  
+        <div class="form-group text-center">
+          <button [disabled]="!offerTopic.valid" class="btn btn-success" type="submit">გაგზავნა</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</ng-template>

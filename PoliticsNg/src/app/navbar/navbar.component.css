@@ -1,0 +1,87 @@
+.sidenav {
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: -250px;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    transition: 0.5s; 
+    box-shadow: 1px 0px 10px 5px #c0c0c0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav a:hover {
+    color: #7bc043;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.hamburger {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 6;
+}
+
+.sidenav-parties {
+    transition: 0.5s;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    box-shadow: inset 1px 0px 10px 2px #d4d4d4;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidenav-parties::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.sidenav-parties {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.brand {
+    font-size: 36px !important; 
+    font-weight: 400 !important; 
+    padding-bottom: 0 !important;
+}
+
+.quote {
+    font-size: 16px; 
+    padding-top: 0; 
+    padding-left: 23px; 
+    font-weight: 400;
+}
+
+.nav-provider-li img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+    margin-top: 11px;
+    margin-left: 4px;
+}
+.nav-provider-li a{
+    margin-left: 12px;
+}

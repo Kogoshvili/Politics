@@ -1,0 +1,29 @@
+<div class="plane">
+  <div class="comment-top">
+    <img src="https://www.caribbeangamezone.com/wp-content/uploads/2018/03/avatar-placeholder.png" alt="">
+    <h6>{{user.unique_name}}</h6>
+  </div>
+  <div class="comment-body">
+
+      <form [formGroup]="commentForm" (ngSubmit)="commentActivity()">
+        <quill-editor [theme]="'bubble'" format="json" [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike']]}" formControlName="content"></quill-editor>
+        <div class="mt-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="side" id="for" value="for">
+            <label class="form-check-label" for="for">
+              მომხრე
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="side" id="against" value="against">
+            <label class="form-check-label" for="against">
+              მოწინააღმდეგე
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-sm mr-5 mt-3" type="submit" [disabled]="!commentForm.valid">Submit</button>
+      </form>
+
+
+  </div>
+</div>

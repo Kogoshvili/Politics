@@ -1,0 +1,8 @@
+.c-form-inline {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.c-form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

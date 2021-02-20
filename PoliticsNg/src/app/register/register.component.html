@@ -1,0 +1,43 @@
+<div class="container">
+  <form #registerForm="ngForm" (ngSubmit)="register()" class="flex">
+    <h2 class="text-center text-primary">Sign Up</h2>
+    <hr>
+    <div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" required name="username" [(ngModel)]="model.Username">
+      </div>
+      
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required name="password" [(ngModel)]="model.Password">
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required name="email" [(ngModel)]="model.Email">
+      </div>
+
+    </div>
+    <div>
+      <!-- <div class="form-group">
+        <input type="text" class="form-control" placeholder="Firstname" required name="firstname" [(ngModel)]="model.Firstname">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Lastname" required name="lastname" [(ngModel)]="model.Lastname">
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="ID" required name="geoId" [(ngModel)]="model.GeoId">
+      </div> -->
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Phone" required name="phone" [(ngModel)]="model.Phone">
+      </div>
+
+    </div>
+
+    <div class="form-group text-center">
+      <button class="btn btn-success" type="submit">Register</button>
+    </div>
+    
+  </form>
+</div>

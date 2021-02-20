@@ -1,0 +1,30 @@
+<div class="plane post-create">
+  <form [formGroup]="postCreate" (ngSubmit)="createPost()" class="container">
+    
+    <div class="form-group form-inline">
+        <label for="category">კატეგორია</label>
+        <select  class="form-control ml-4" id="category" placeholder="Category" formControlName="category">
+          <option value="" selected>ყველა თემა</option>
+          <option *ngFor="let category of categories" value="{{category.name}}">{{category.title}}</option>
+        </select>
+    </div>
+
+    <div class="create-image">
+      <image-upload (uploadFinished)="uploadFile($event)" (removed)="onRemoved($event)" 
+                    [extensions]="['jpeg','png']" [style]="customStyle"
+                    buttonCaption="სურათის არჩევა"
+                    dropBoxMessage="სურათების ჩასაგდები ადგილი"
+                    clearButtonCaption="გასუფთავება"
+                    [uploadedFiles]="PastImages"
+      ></image-upload>
+    </div>
+    
+    <div class="form-group">
+      <label>ტექსტი</label>
+      <quill-editor formControlName="content" [styles]="{height: '250px'}" format="json"></quill-editor>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">დაპოსტვა</button>
+  </form>  
+
+</div>

@@ -1,0 +1,32 @@
+/* Bottom */
+.topic-bottom {
+    margin-top: 10px;
+}
+.topic-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.topic-list .share{
+    display: flex;
+    align-items: center;
+}
+.topic-list .comments{
+    display: flex;
+    align-items: center;
+}
+.topic-list .thumbs{
+    display: flex;
+    align-items: center;
+}
+.topic-list span {
+    margin-left: 8px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.full-comments {
+    margin: 0 auto;
+}

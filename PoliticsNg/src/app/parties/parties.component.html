@@ -1,0 +1,11 @@
+<div class="plane provider-card">
+    <div class="provider-top">
+        <img src="{{ provider['image'] }}" alt="">
+        <h3>{{ provider['title'] }}</h3>
+    </div>
+    <div class="provider-body">
+        {{provider['description']}}
+    </div>
+</div>
+<app-posts-filter (formFilter)="formFilter($event)"></app-posts-filter>
+<app-posts-list></app-posts-list>

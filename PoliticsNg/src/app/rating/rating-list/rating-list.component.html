@@ -1,0 +1,4 @@
+
+<div *ngFor="let topic of topics">
+    <app-rating-card [topic]="topic" [number]="topics.indexOf(topic)+1"></app-rating-card>
+</div>

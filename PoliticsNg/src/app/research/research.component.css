@@ -1,0 +1,22 @@
+.research-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+}
+.research-from-secondary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.research-from-secondary > div {
+    margin: auto;
+}
+.main-vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.main-vote select {
+    width: auto;
+}

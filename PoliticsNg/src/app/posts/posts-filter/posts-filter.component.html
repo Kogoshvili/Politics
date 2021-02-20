@@ -1,0 +1,17 @@
+<div class="plane container-flex c-form-inline">
+
+  <div class="c-form-group">
+      <select  class="form-control" id="provider" name="provider" [(ngModel)]="filter.provider" (change)="OnChanges()">
+          <option value="">ყველა პარტია</option>
+          <option *ngFor="let provider of providers" value="{{provider.name}}">{{provider.title}}</option>
+      </select>
+  </div>
+
+  <div class="c-form-group">
+      <select class="form-control" id="category" name="category" [(ngModel)]="filter.category" (change)="OnChanges()">
+          <option value="">ყველა თემა</option>
+          <option *ngFor="let category of categories" value="{{category.name}}">{{category.title}}</option>
+      </select>
+  </div>
+
+</div>

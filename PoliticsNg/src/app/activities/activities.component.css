@@ -1,0 +1,79 @@
+.activity {
+    text-align: center;
+}
+.activity h1 {
+    margin-bottom: 20px;
+}
+.activity h5 {
+    margin-bottom: 50px;
+}
+.activity-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.activity-list .share{
+    display: flex;
+    align-items: center;
+}
+.activity-list .comments{
+    display: flex;
+    align-items: center;
+}
+.activity-list .thumbs{
+    display: flex;
+    align-items: center;
+}
+.activity-list span {
+    margin-left: 8px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.full-comments {
+    margin: 0 auto;
+}
+.hidden {
+    display: none;
+}
+
+.like-dislike {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.like-dislike i {
+    font-size: 36px;
+    margin-right: 20px;
+}
+.like-dislike span {
+    font-size: 40px;
+}
+
+
+.comment-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+app-rating-card-comment {
+    flex: 0 1 490px;
+}
+
+app-rating-card-comment:nth-child(even) {
+    margin-left: 19px;
+}
+.right {
+    margin-left: 51% !important;
+}
+@media screen and (max-width: 991px) {
+    .right {
+        margin-left: 0 !important;
+    }
+    app-rating-card-comment:nth-child(even) {
+        margin-left: 0;
+    }
+}

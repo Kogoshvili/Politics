@@ -1,0 +1,145 @@
+<nav>
+  <button (click)="toggleNav()" class="hamburger hamburger--squeeze" [ngClass]="{'is-active': sidenav}" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <div class="sidenav" [ngStyle]="{'left': sidenav ? '0' : '-270px'}">
+    <ul class="navbar-nav mb-1">
+      <li class="nav-item">
+        <a [routerLink]="['']"  class="nav-link brand" role="button">
+          Unity
+        </a>
+        <span class="nav-link quote">
+          Pacta Sunt Servanda
+        </span>
+      </li>
+      <hr>
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" role="button" (click)="toggleParties()" >პარტიები</a>
+
+        <ul class="navbar-nav sidenav-parties"  [ngStyle]="{'max-height': parties ? '500px' : '0'}" >
+          <li class="nav-provider-li" *ngFor="let provider of providers">
+            <img src="{{provider.image}}" alt="{{provider.name}}">
+            <a class="nav-item"
+            routerLinkActive="active" [routerLink]="['/parties/'+ provider.name]" 
+            (click)="loading('/parties/'+ provider.name)" >{{provider.title}}</a>
+          </li>
+        </ul>
+      
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/rating']" (click)="loading('/rating')" role="button">რეიტინგი</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/activities']" role="button">აქტიურობა</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" role="button" disabled="true">სტატისტიკა <sub>(ანონიმური გამოკითხვის შედეგები)</sub></a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a *ngIf="!loggedIn" class="nav-link" role="button" (click)="openRegister(modalRegister)">რეგისტრაცია</a>
+      </li>
+      <li *ngIf="!loggedIn" class="nav-item">
+        <a class="nav-link" role="button" (click)="openLogin(modalLogin)">შესვლა</a>
+      </li> 
+      <li *ngIf="loggedIn && tokenData.role == 'Author'">
+        <a role="button" [routerLink]="['/post/create']">პოსტის დაწერა</a>
+      </li>
+      <li *ngIf="loggedIn">
+        <a  role="button" (click)="logout()" (click)="loading()">გამოსვლა</a>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+
+<ng-template #modalRegister>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">რეგისტრაცია</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <form #registerForm="ngForm" (ngSubmit)="openCode(modalCode)" class="flex">
+
+        <div class="form-group">
+          <label for="username">სახელი</label>
+          <input type="text" class="form-control" placeholder="Username" id="username" name="username" required [(ngModel)]="user.username" >
+        </div>
+        
+        <div class="form-group">
+          <label for="password">პაროლო</label>
+          <input type="password" class="form-control" placeholder="Password" id="password" name="password" required [(ngModel)]="user.password">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">ტელეფონი</label>
+          <input type="email" class="form-control" placeholder="Phone" name="phone" required [(ngModel)]="user.phone">
+        </div> 
+  
+        <div class="form-group text-center">
+          <button class="btn btn-success" type="submit">შემდეგ</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</ng-template>
+ 
+<ng-template #modalCode>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">მობილურის დადასტურება</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="code">კოდი</label>
+      <input type="email" class="form-control" placeholder="Code" name="code" required [(ngModel)]="user.code">
+    </div> 
+    <button *ngIf="modalRef" type="button" class="btn btn-primary" (click)="register()">რეგისტრაცია</button>
+  </div>
+</ng-template>
+
+
+<ng-template #modalLogin>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">ავტორიზაცია</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef3.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+
+      <form #loginForm="ngForm" (ngSubmit)="login()" class="flex">
+
+        <div class="form-group">
+          <label for="username">სახელი</label>
+          <input type="text" class="form-control" placeholder="Username" id="username" name="username" required [(ngModel)]="user.username" >
+        </div>
+        
+        <div class="form-group">
+          <label for="password">პაროლი</label>
+          <input type="password" class="form-control" placeholder="Password" id="password" name="password" required [(ngModel)]="user.password">
+        </div>
+  
+        <div class="form-group text-center">
+          <button [disabled]="!loginForm.valid" class="btn btn-success" type="submit">შესვლა</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</ng-template>

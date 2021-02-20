@@ -1,0 +1,68 @@
+<div class="plane" *ngIf="!voterExists">
+  <div class="text-center my-3">
+      <h2>ანონიმური გამოკითხვა</h2>
+  </div>
+  <form [formGroup]="researchVote" (ngSubmit)="vote()" class="container research-form">
+    
+    <div class="main-vote">
+      <label for="prime">მთავარი ხმა</label>
+      <select [ngClass]="{'is-invalid': researchVote.get('prime').errors && researchVote.get('prime').touched}"
+              class="form-control" id="prime" formControlName="prime">
+        <option [ngValue]="null" disabled>აირჩიეთ კანდიდატი</option>
+        <option *ngFor="let candidate of candidates" value="{{candidate.name}}" (change)="changeCity($event)">{{candidate.title}}</option>
+      </select>
+      <div class="invalid-feedback">გთხოვთ აირჩიოთ კანდიდატი</div>
+    </div>
+
+    <div class="text-center mb-2 mt-4">
+      <h6>თქვენი რეიტინგი (სურვილისამებრი)</h6>
+    </div>
+    <div class="research-from-secondary">
+      <div class="">
+        <label for="first">პირველი</label>
+        <select  class="form-control" id="first" formControlName="first">
+          <option [ngValue]="null" selected>აირჩიეთ კანდიდატი</option>
+          <option *ngFor="let candidate of candidates" value="{{candidate.name}}">{{candidate.title}}</option>
+        </select>
+      </div>
+
+      <div class="">
+        <label for="second">მეორე</label>
+        <select  class="form-control" id="second" formControlName="second">
+          <option [ngValue]="null" selected>აირჩიეთ კანდიდატი</option>
+          <option *ngFor="let candidate of candidates" value="{{candidate.name}}">{{candidate.title}}</option>
+        </select>
+      </div>
+
+      <div class="">
+        <label for="third">მესამე</label>
+        <select  class="form-control" id="third" formControlName="third">
+          <option [ngValue]="null" selected>აირჩიეთ კანდიდატი</option>
+          <option *ngFor="let candidate of candidates" value="{{candidate.name}}">{{candidate.title}}</option>
+        </select>
+      </div>
+
+      <div class="">
+        <label for="fourth">მეოთხე</label>
+        <select  class="form-control" id="fourth" formControlName="fourth">
+          <option [ngValue]="null" selected>აირჩიეთ კანდიდატი</option>
+          <option *ngFor="let candidate of candidates" value="{{candidate.name}}">{{candidate.title}}</option>
+        </select>
+      </div>
+<!-- 
+      <div class="">
+        <label for="fifth">მეხუთე</label>
+        <select  class="form-control" id="fifth" formControlName="fifth">
+          <option [ngValue]="null" selected>აირჩიეთ კანდიდატი</option>
+          <option *ngFor="let candidate of candidates" value="{{candidate.name}}">{{candidate.title}}</option>
+        </select>
+      </div> -->
+    </div>
+
+    <div class="my-4 text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="!researchVote.valid">დაფიქსირება</button>
+    </div>
+
+  </form>  
+
+</div>

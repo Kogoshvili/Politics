@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+$theme-colors: (
+  "primary": #7bc043,
+  "danger": #ee4035,
+  "warning": #fed766,
+  "success": #7bc043,
+  "info": #0392cf,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+// @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/quill/dist/quill.bubble.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+@import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/hamburgers/dist/hamburgers.min.css';
+@import '~ngx-toastr/toastr';
+
+:root {
+    --main-bg-color: #f4f4f8;
+    --main-gray: #e6e6ea;
+    --main-red: #fe4a49;
+    --main-blue: #2ab7ca;
+    --main-yellow:#fed766;
+
+    --secondary-red:#ee4035;
+    --secondary-orange:#f37736;
+    --secondary-yellow:#fdf498;
+    --secondary-green:#7bc043;
+    --secondary-blue:#0392cf;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+html {
+    padding-left: calc(100vw - 100%); // scroll bar width fixer
+}
+
+.plane {
+    border-radius: 5px;
+    margin: 20px 0px 20px 0px;
+    padding: 15px 15px 15px 15px;
+    box-shadow: 0px 0px 10px 2px #d4d4d4;
+    background-color: white;
+}
+.container-flex{
+    display: flex;
+}
+
+.ngx-gallery { 
+    display: inline-block; 
+}
+.fa-arrow-circle-right,
+.fa-arrow-circle-left {
+    color: #000;
+}
+.btn {
+    font-weight: 500;
+}
+.fa {
+    color: #7bc043;
+}
