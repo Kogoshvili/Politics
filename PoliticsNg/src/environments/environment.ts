@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //apiUrl: 'https://localhost:5001/api/'//https://politics-ak.herokuapp.com/
-  apiUrl: 'https://politics-ak.herokuapp.com/api/'//
+  //apiUrl: 'https://localhost:5001/api/'
+  apiUrl: 'https://politics-ak.herokuapp.com/api/'
 };
 
 /*

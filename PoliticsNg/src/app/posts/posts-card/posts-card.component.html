@@ -1,9 +1,9 @@
 <div class="post-card-space">
   <div class="plane post-card">
     <div class="post-top">
-      <img src="{{post['provider'].image}}" alt="">
-      <h5>{{post['provider'].title}}</h5>
-      <div *ngIf="userId == post['user'].id" class="ml-2">
+      <img src="{{post['provider']?.image}}" alt="">
+      <h5>{{post['provider']?.title}}</h5>
+      <div *ngIf="userId == post['user']?.id" class="ml-2">
         <button class="btn btn-sm btn-warning mr-2 my-1" (click)="editPost()">Edit</button>
         <button class="btn btn-sm btn-danger my-1" (click)="openDelete(modalDelete)">Delete</button>
       </div>
@@ -15,7 +15,7 @@
 
     <div class="post-body">
       <div class="post-body-gallery">
-        <ngx-gallery *ngIf="galleryImages.length > 0" [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+        <ngx-gallery *ngIf="galleryImages?.length > 0" [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
       </div>
       <div class="post-body-text">
         <div #content class="post-body-content" [ngClass]="{'less': this.hide }" [innerHTML]="post.content"></div>

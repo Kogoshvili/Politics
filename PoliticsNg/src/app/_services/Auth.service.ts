@@ -29,7 +29,7 @@ export class AuthService {
 
   sendSMS(phone: any): Observable<string> {
     phone.phone = phone.phone.replace(/\s/g,'');
-    if(!phone.phone.includes("+995") && phone.phone.leangth() == 9)
+    if(!phone.phone.includes("+995") && phone.phone.leangth == 9)
     {
       phone.phone = "+995"+phone.phone;
     }

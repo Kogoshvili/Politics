@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { Post } from 'src/app/_models/Post';
 import { DatePipe } from '@angular/common';
-import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'; 
+import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
@@ -39,7 +39,7 @@ export class PostsCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.converter = new QuillDeltaToHtmlConverter(JSON.parse(this.post.content).ops, {});
+    this.converter = new QuillDeltaToHtmlConverter(JSON.parse(this.post.content.replace(/\\/g, '')).ops, {});
     this.post.content = this.converter.convert();
 
     this.url = "http://localhost:4200/post/" + this.post.id;
@@ -53,7 +53,7 @@ export class PostsCardComponent implements OnInit {
     this.galleryOptions = [
       {
         imageSize: "contain",
-        imageArrowsAutoHide: this.post.images.length > 1 ? true : false, 
+        imageArrowsAutoHide: this.post.images.length > 1 ? true : false,
         imageArrows: this.post.images.length > 1,
         thumbnailsRemainingCount: true,
         thumbnailsArrowsAutoHide: true,
@@ -97,7 +97,7 @@ export class PostsCardComponent implements OnInit {
       }
     )
   }
-  
+
   showhide(){
     this.hide = !this.hide;
   }
@@ -109,7 +109,7 @@ export class PostsCardComponent implements OnInit {
       return false;
     }
   }
-  
+
   editPost(){
     if(this.userId == this.post.user.id){
       this.router.navigate(['post/edit/' + this.post.id]);
@@ -133,7 +133,7 @@ export class PostsCardComponent implements OnInit {
 
   openDelete(template: TemplateRef<any>){
     this.modalRef4 = this.modalService.show(template, { class: 'modal-sm' });
-  } 
+  }
 
   likePost(){
     if(this.userId != null){

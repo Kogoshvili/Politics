@@ -32,7 +32,7 @@ namespace PoliticsNet.Controllers
             if (await _repo.PhoneExists(phone.Phone))
                 return BadRequest("Phone Exists");
 
-            var status = await _phone.SendCode(phone.Phone);
+            var status = "pending"; //await _phone.SendCode(phone.Phone);
             return Ok(status == "pending");
         }
 
@@ -46,7 +46,7 @@ namespace PoliticsNet.Controllers
             if (await _repo.PhoneExists(user.Phone))
                 return BadRequest("Phone Exists");
 
-            var result = await _phone.CheckCode(user.Phone, user.Code);
+            var result = "approved"; //await _phone.CheckCode(user.Phone, user.Code);
 
             if (result != "approved")
             {
