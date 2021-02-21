@@ -62,7 +62,7 @@ namespace Politics
                     var pgPort = pgHostPort.Split(":")[1];
 
                     string connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};SSL Mode=Require;TrustServerCertificate=True";
-
+                    options.UseLazyLoadingProxies();
                     options.UseNpgsql(connStr);
                 });
             }

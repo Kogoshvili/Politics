@@ -41,7 +41,7 @@ export class PostsCardComponent implements OnInit {
   ngOnInit() {
     this.converter = new QuillDeltaToHtmlConverter(JSON.parse(this.post.content.replace(/\\/g, '')).ops, {});
     this.post.content = this.converter.convert();
-
+    console.log('Post', this.post);
     this.url = "http://localhost:4200/post/" + this.post.id;
     if(this.authService.loggedIn()){
       this.userId = this.authService.decodedToken.nameid;
